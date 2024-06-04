@@ -6,6 +6,7 @@
   align-items: center;
   flex-direction: column;
 }
+
 #calculator {
   width: max-content;
   border: 1px solid black;
@@ -28,6 +29,7 @@
 }
 
 #display-bottom {
+  /* width: 185px; */
   font-size: 25px;
   font-weight: bold;
 }

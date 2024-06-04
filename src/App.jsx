@@ -5,102 +5,104 @@ function App() {
   const [firstNumber, setFirstNumber] = useState([]);
   const [secondNumber, setSecondNumber] = useState([]);
   const [operation, setOperation] = useState("");
-  const [display, setDisplay] = useState([""]);
-  const [result, setResult] = useState(0);
+  const [display, setDisplay] = useState([]);
+  const [result, setResult] = useState();
 
   const takeNumber = (e) => {
-    if (operation === "") {
-      switch (e.target.id) {
-        case "one":
-          setFirstNumber([...firstNumber, "1"]);
-          setDisplay([...display, "1"]);
-          break;
-        case "two":
-          setFirstNumber([...firstNumber, "2"]);
-          setDisplay([...display, "2"]);
-          break;
-        case "three":
-          setFirstNumber([...firstNumber, "3"]);
-          setDisplay([...display, "3"]);
-          break;
-        case "four":
-          setFirstNumber([...firstNumber, "4"]);
-          setDisplay([...display, "4"]);
-          break;
-        case "five":
-          setFirstNumber([...firstNumber, "5"]);
-          setDisplay([...display, "5"]);
-          break;
-        case "six":
-          setFirstNumber([...firstNumber, "6"]);
-          setDisplay([...display, "6"]);
-          break;
-        case "seven":
-          setFirstNumber([...firstNumber, "7"]);
-          setDisplay([...display, "7"]);
-          break;
-        case "eight":
-          setFirstNumber([...firstNumber, "8"]);
-          setDisplay([...display, "8"]);
-          break;
-        case "nine":
-          setFirstNumber([...firstNumber, "9"]);
-          setDisplay([...display, "9"]);
-          break;
-        case "zero":
-          setFirstNumber([...firstNumber, "0"]);
-          setDisplay([...display, "0"]);
-          break;
-        default:
-          return;
+    if (result == null) {
+      if (operation === "") {
+        switch (e.target.id) {
+          case "one":
+            setFirstNumber([...firstNumber, "1"]);
+            setDisplay([...display, "1"]);
+            break;
+          case "two":
+            setFirstNumber([...firstNumber, "2"]);
+            setDisplay([...display, "2"]);
+            break;
+          case "three":
+            setFirstNumber([...firstNumber, "3"]);
+            setDisplay([...display, "3"]);
+            break;
+          case "four":
+            setFirstNumber([...firstNumber, "4"]);
+            setDisplay([...display, "4"]);
+            break;
+          case "five":
+            setFirstNumber([...firstNumber, "5"]);
+            setDisplay([...display, "5"]);
+            break;
+          case "six":
+            setFirstNumber([...firstNumber, "6"]);
+            setDisplay([...display, "6"]);
+            break;
+          case "seven":
+            setFirstNumber([...firstNumber, "7"]);
+            setDisplay([...display, "7"]);
+            break;
+          case "eight":
+            setFirstNumber([...firstNumber, "8"]);
+            setDisplay([...display, "8"]);
+            break;
+          case "nine":
+            setFirstNumber([...firstNumber, "9"]);
+            setDisplay([...display, "9"]);
+            break;
+          case "zero":
+            setFirstNumber([...firstNumber, "0"]);
+            setDisplay([...display, "0"]);
+            break;
+          default:
+            return;
+        }
+      } else {
+        switch (e.target.id) {
+          case "one":
+            setSecondNumber([...secondNumber, "1"]);
+            setDisplay([...display, "1"]);
+            break;
+          case "two":
+            setSecondNumber([...secondNumber, "2"]);
+            setDisplay([...display, "2"]);
+            break;
+          case "three":
+            setSecondNumber([...secondNumber, "3"]);
+            setDisplay([...display, "3"]);
+            break;
+          case "four":
+            setSecondNumber([...secondNumber, "4"]);
+            setDisplay([...display, "4"]);
+            break;
+          case "five":
+            setSecondNumber([...secondNumber, "5"]);
+            setDisplay([...display, "5"]);
+            break;
+          case "six":
+            setSecondNumber([...secondNumber, "6"]);
+            setDisplay([...display, "6"]);
+            break;
+          case "seven":
+            setSecondNumber([...secondNumber, "7"]);
+            setDisplay([...display, "7"]);
+            break;
+          case "eight":
+            setSecondNumber([...secondNumber, "8"]);
+            setDisplay([...display, "8"]);
+            break;
+          case "nine":
+            setSecondNumber([...secondNumber, "9"]);
+            setDisplay([...display, "9"]);
+            break;
+          case "zero":
+            setSecondNumber([...secondNumber, "0"]);
+            setDisplay([...display, "0"]);
+            break;
+          default:
+            return;
+        }
+        // setSecondNumber([...secondNumber, "1"]);
+        // setDisplay([...display, "1"]);
       }
-    } else {
-      switch (e.target.id) {
-        case "one":
-          setSecondNumber([...secondNumber, "1"]);
-          setDisplay([...display, "1"]);
-          break;
-        case "two":
-          setSecondNumber([...secondNumber, "2"]);
-          setDisplay([...display, "2"]);
-          break;
-        case "three":
-          setSecondNumber([...secondNumber, "3"]);
-          setDisplay([...display, "3"]);
-          break;
-        case "four":
-          setSecondNumber([...secondNumber, "4"]);
-          setDisplay([...display, "4"]);
-          break;
-        case "five":
-          setSecondNumber([...secondNumber, "5"]);
-          setDisplay([...display, "5"]);
-          break;
-        case "six":
-          setSecondNumber([...secondNumber, "6"]);
-          setDisplay([...display, "6"]);
-          break;
-        case "seven":
-          setSecondNumber([...secondNumber, "7"]);
-          setDisplay([...display, "7"]);
-          break;
-        case "eight":
-          setSecondNumber([...secondNumber, "8"]);
-          setDisplay([...display, "8"]);
-          break;
-        case "nine":
-          setSecondNumber([...secondNumber, "9"]);
-          setDisplay([...display, "9"]);
-          break;
-        case "zero":
-          setSecondNumber([...secondNumber, "0"]);
-          setDisplay([...display, "0"]);
-          break;
-        default:
-          return;
-      }
-      // setSecondNumber([...secondNumber, "1"]);
-      // setDisplay([...display, "1"]);
     }
   };
 
@@ -142,7 +144,7 @@ function App() {
     }
   };
 
-  console.log(operation);
+  console.log(firstNumber, secondNumber, result, display);
 
   const handleEqual = () => {
     if (operation != "") {
@@ -165,8 +167,8 @@ function App() {
     setFirstNumber([]);
     setSecondNumber([]);
     setOperation("");
-    setDisplay([""]);
-    setResult(0);
+    setDisplay([]);
+    setResult();
   };
   // console.log("first: " + firstNumber, operation, "second: " + secondNumber);
   // console.log("display:" + display);
@@ -174,8 +176,8 @@ function App() {
   return (
     <div id="calculator">
       <div id="display">
-        <div id="display-top">{display}</div>
-        <div id="display-bottom">{result}</div>
+        <div id="display-top">{display[0] ? display : 0}</div>
+        <div id="display-bottom">{result === undefined ? 0 : result}</div>
       </div>
       <div id="buttons">
         <div id="clear" onClick={handleClear}>
